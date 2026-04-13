@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Julia Melo, Meu Portfólio </title>
-    <style> 
+    <title> Julia Melo</title>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -15,79 +15,158 @@
             font-family: Georgia, serif;
             line-height: 1.6;
             color: #724b54;
+            display: flex;
+        }
+
+        /* Menu Lateral */
+        nav {
+            background-color: #f5e6d777;
+            color: #f5997d;
+            width: 250px;
+            height: 100vh;
+            padding: 20px 0;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        nav h3 {
+            padding: 0 20px;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            padding: 15px 20px;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li:hover {
+            background-color: #f8f9fa;
+            border-left-color: #fa6096b7;;
+        }
+
+        nav ul li a {
+            color: #f5997d;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Conteúdo Principal */
+        main {
+            margin-left: 250px;
+            flex: 1;
+            padding: 0;
         }
 
         header {
-            background-color: #FAF1E8;
+            background-color: #faf1e8;
             color: #f5997d;
             padding: 30px;
             text-align: center;
         }
 
-        main {
-            padding: 20px;
-            max-width: 1200px;
+        .content {
+            padding: 30px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         section {
             margin: 30px 0;
-            padding: 20px;
-            border: 1px solid #FAF1E8;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #fa6096b7;
         }
 
         h2 {
-            color: #f5997d;
+            color: #fa6096b7;
             margin-bottom: 15px;
         }
 
         footer {
-            background-color: #FAF1E8;
+            background-color: #faf1e8;
             color: #fa6096b7;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 30px;
+            margin-left: 250px;
         }
-    
 
+        @media (max-width: 1000px) {
+            body {
+                flex-direction: column;
+            }
 
+            nav {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            main {
+                margin-left: 0;
+            }
+
+            footer {
+                margin-left: 0;
+            }
+        }
     </style>
-
 </head>
 <body>
-    <header>
-        <h1>JULIA MELO</h1>
-        <p>Desenvolvedora Júnior</p>
-    </header>
+    <!-- Menu Lateral -->
+    <nav>
+        <h3>Menu</h3>
+        <ul>
+            <li><a href="#sobre">Sobre Mim</a></li>
+            <li><a href="#Minhas habilidades">Minhas Habilidades</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
 
     <main>
-        <section>
-            <h2>Sobre Mim</h2>
-            <p>Olá! Eu me chamo Julia, uma desenvolvedora júnior apaixonada por criar soluções web. Estou começando minha jornada na programação e adoraria trabalhar em projetos desafiadores.</p>
-        </section>
+        <header>
+            <h1>Julia Melo</h1>
+            <p>Desenvolvedora Júnior</p>
+        </header>
 
-        <section>
-            <h2>Minhas habilidades</h2>
-            <p>HTML, CSS (básico)</p>
-        </section>
+        <div class="content">
+            <section id="sobre">
+                <h2>Sobre Mim</h2>
+                <p>Olá! Eu me chamo Julia, sou uma desenvolvedora júnior apaixonada por criar soluções web. Estou começando minha jornada na programação e adoraria trabalhar em projetos desafiadores.</p>
+            </section>
 
-        <section>
-            <h2>Projetos</h2>
-            <p>Em breve...</p>
-        </section>
+            <section id="Minhas habilidades">
+                <h2>Habilidades</h2>
+                <ul style="margin-left: 20px;">
+                    <li>HTML</li>
+                    <li>CSS (básico)</li>
+                
+                </ul>
+            </section>
 
-        <section>
-            <h2>Contato</h2>
-            <p>Email: juliahsilvademeloh@gmail.com</p>
-            <p>LinkedIn: https://www.linkedin.com/in/juliasilvademelo/</p>
-        </section>
+            <section id="projetos">
+                <h2>Projetos</h2>
+                <p>Em breve...</p>
+            </section>
+
+            <section id="contato">
+                <h2>Contato</h2>
+                <p><strong>Email:</strong> juliahsilvademeloh@gmail.com </p>
+                <p><strong>LinkedIn:</strong> https://www.linkedin.com/in/juliasilvademelo/</p>
+            </section>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2026 Meu Portfólio. Todos os direitos reservados.</p>
     </footer>
-
-    
-
 </body>
 </html>
