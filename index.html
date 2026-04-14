@@ -12,9 +12,9 @@
         }
 
         body {
-            font-family: Georgia, serif;
+            font-family:  Georgia, serif;
             line-height: 1.6;
-            color: #724b54;
+            color:  #724b54;
             display: flex;
         }
 
@@ -28,6 +28,7 @@
             position: fixed;
             left: 0;
             top: 0;
+            overflow-y: auto;
         }
 
         nav h3 {
@@ -48,11 +49,11 @@
 
         nav ul li:hover {
             background-color: #f8f9fa;
-            border-left-color: #fa6096b7;;
+            border-left-color:  #fa6096b7;
         }
 
         nav ul li a {
-            color: #f5997d;
+            color:  #f5997d;
             text-decoration: none;
             display: block;
         }
@@ -65,10 +66,53 @@
         }
 
         header {
-            background-color: #faf1e8;
+            background-color:#FAF1E8;
             color: #f5997d;
             padding: 30px;
             text-align: center;
+        }
+
+        /* Barra de Pesquisa */
+        .search-bar {
+            background-color: #fa6096b7
+            padding: 20px 30px;
+            border-bottom: 1px solid #FAF1E8
+        }
+
+        .search-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-container input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #fa6096b7
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            border-color: #f5997d
+        }
+
+        .search-container button {
+            padding: 12px 25px;
+            background-color: #f5997d
+            color: orange;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-container button:hover {
+            background-color: #fa6096b7
         }
 
         .content {
@@ -82,23 +126,37 @@
             padding: 25px;
             background-color: #f8f9fa;
             border-radius: 8px;
-            border-left: 4px solid #fa6096b7;
+            border-left: 4px solid #f5997d
         }
 
         h2 {
-            color: #fa6096b7;
+            color: #f5997d
             margin-bottom: 15px;
         }
 
+        .project-card {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
         footer {
-            background-color: #faf1e8;
-            color: #fa6096b7;
+            background-color: #FAF1E8
+            color: yellow;
             text-align: center;
-            padding: 30px;
+            padding: 20px;
             margin-left: 250px;
         }
 
-        @media (max-width: 1000px) {
+        @media (max-width: 768px) {
             body {
                 flex-direction: column;
             }
@@ -116,6 +174,10 @@
             footer {
                 margin-left: 0;
             }
+
+            .search-container {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -125,7 +187,7 @@
         <h3>Menu</h3>
         <ul>
             <li><a href="#sobre">Sobre Mim</a></li>
-            <li><a href="#Minhas habilidades">Minhas Habilidades</a></li>
+            <li><a href="#Minhas habilidades">Minhas habilidades</a></li>
             <li><a href="#projetos">Projetos</a></li>
             <li><a href="#contato">Contato</a></li>
         </ul>
@@ -137,6 +199,14 @@
             <p>Desenvolvedora Júnior</p>
         </header>
 
+        <!-- Barra de Pesquisa -->
+        <div class="search-bar">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Pesquisar...">
+                <button onclick="buscar()">Buscar</button>
+            </div>
+        </div>
+
         <div class="content">
             <section id="sobre">
                 <h2>Sobre Mim</h2>
@@ -144,23 +214,28 @@
             </section>
 
             <section id="Minhas habilidades">
-                <h2>Habilidades</h2>
+                <h2> Minhas habilidades</h2>
                 <ul style="margin-left: 20px;">
                     <li>HTML</li>
-                    <li>CSS (básico)</li>
-                
+                    <li>CSS</li>
+                    <li>React (básico)</li>
+
                 </ul>
             </section>
 
             <section id="projetos">
                 <h2>Projetos</h2>
-                <p>Em breve...</p>
+                
+                <div class="project-card">
+                    <h3>Em breve...</h3>
+              
+                </div>
             </section>
 
             <section id="contato">
                 <h2>Contato</h2>
-                <p><strong>Email:</strong> juliahsilvademeloh@gmail.com </p>
-                <p><strong>LinkedIn:</strong> https://www.linkedin.com/in/juliasilvademelo/</p>
+                <p><strong>Email:</strong> juliahsilvdemeloh@gmail.com </p>
+                <p><strong>LinkedIn:</strong>https://www.linkedin.com/in/juliasilvademelo/</p>
             </section>
         </div>
     </main>
@@ -168,5 +243,28 @@
     <footer>
         <p>&copy; 2026 Meu Portfólio. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        function buscar() {
+            const termo = document.getElementById('searchInput').value.toLowerCase();
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const texto = section.textContent.toLowerCase();
+                if (termo === '' || texto.includes(termo)) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+        // Permitir busca ao pressionar Enter
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                buscar();
+            }
+        });
+    </script>
 </body>
 </html>
